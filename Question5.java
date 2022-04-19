@@ -1,4 +1,4 @@
-import java.util.Scanner;
+import java.util.*;
 
 public class Question5
 {
@@ -25,8 +25,26 @@ public class Question5
      *     2
      * Hint: Use a loop to get input. Use another 2 loops to find the mode
      */
-     
+    List<Integer> numList = new ArrayList<Integer>();
     Scanner in = new Scanner(System.in);
-    
+    //System.out.print("Enter number: ");
+    int num = in.nextInt();
+    for (int i = 0; i < num; i++)
+    {
+    //System.out.print("Enter integer: ");
+    int numbers = in.nextInt();
+    numList.add(numbers);
+    }
+    int highest = 0;
+    int count = 0;
+    for (int i : numList)
+    {
+      if (Collections.frequency(numList, i) > count)
+      {
+        highest = i;
+        count = Collections.frequency(numList, i);
+      }
+    }
+    System.out.println(highest);
   }
 }
